@@ -15,4 +15,4 @@ RUN dotnet build -c Release -o /app/build
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/build .
-ENTRYPOINT ["dotnet", "MyApp.dll"]
+ENTRYPOINT ["dotnet", "GC.WebReact.dll"]

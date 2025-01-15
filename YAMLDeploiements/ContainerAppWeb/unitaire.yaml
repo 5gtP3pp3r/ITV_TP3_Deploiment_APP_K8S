@@ -27,6 +27,7 @@ spec:
         - name: #nom à venir
           persistantVolumeClaim:
            claimName: #nom à venir
-        ports:
-        - containerPort: 30000
+        env:
+        - name: ASPNETCORE_URLS
+          value: "http://0.0.0.0:30000"
      

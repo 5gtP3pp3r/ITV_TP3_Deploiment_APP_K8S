@@ -2,19 +2,17 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 
-# Copier les fichiers de projet pour maximiser l'utilisation du cache
-COPY GC.WebReact/GC.WebReact.csproj GC.WebReact/
-RUN dotnet restore GC.WebReact/GC.WebReact.csproj
+# Copier tous les fichiers projet/solution
+COPY src/ .
 
-# Copier le reste des fichiers de l'application et publier
-COPY GC.WebReact/ GC.WebReact/
-WORKDIR /src/GC.WebReact
-RUN dotnet publish -c Release -o /app
+# Restaurer les dépendances
+RUN dotnet restore 
+
+# Compiler l'application
+RUN dotnet build -c Release -o /app/build
 
 # Étape d'exécution
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
-COPY --from=build /app .
-ENTRYPOINT ["dotnet", "GC.WebReact.dll"]
+COPY --from=build /app/build .
+ENTRYPOINT ["dotnet", "MyApp.dll"]

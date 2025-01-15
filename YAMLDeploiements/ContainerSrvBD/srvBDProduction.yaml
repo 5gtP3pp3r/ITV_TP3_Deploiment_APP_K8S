@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: gcwebreactBDProduction
+  namespace: production
+  labels:
+    app: GC.WebReact
+    tier: database
+spec:
+  selector:
+    matchLabels:
+      app: GC.WebReact
+      tier: database
+  template:
+    metadata:
+      labels:
+        app: GC.WebReact
+        tier: database
+    spec:
+      containers:
+      - name: gcwebreactDBProduction
+        image: # à voir 
+        volumeMounts:
+        - name: #nom à venir
+        - mounthPath: # je crois que le chemin dépend de l'image..
+        volumes:
+        - name: #nom à venir
+          persistantVolumeClaim:
+           claimName: #nom à venir
+        resources:
+          limits:
+            memory: # à discuter
+            cpu: # à discuter
+          

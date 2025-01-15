@@ -28,6 +28,4 @@ spec:
           persistantVolumeClaim:
            claimName: #nom à venir
         ports:
-        - containerPort: 80
-
-      
+        - containerPort: 30002

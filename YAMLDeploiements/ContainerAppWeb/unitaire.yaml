@@ -1,7 +1,7 @@
 apiVersion : v1
 kind: Deployment
 metadata: 
-  name: gcwebreactAppUnitaire
+  name: gcwebreactApp
   namespace: unitaire
   labels: 
     app: GC.WebReact
@@ -18,15 +18,8 @@ spec:
        tier: web
     spec:
       containers:
-      - name: gcwebreactAppUnitaire
+      - name: gcwebreactApp
         image: #nom de l'image à willino
-        volumeMounts:
-        - name: #nom à venir
-        - mounthPath: # je crois que le chemin dépend de l'image..
-        volumes:
-        - name: #nom à venir
-          persistantVolumeClaim:
-           claimName: #nom à venir
         env:
         - name: ASPNETCORE_URLS
           value: "http://0.0.0.0:30000"

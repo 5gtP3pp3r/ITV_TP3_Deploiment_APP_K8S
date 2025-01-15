@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-production-web
+  namespace: production
+data:
+  NAMESPACE: "production"
+  ASPNETCORE_URLS: "http://0.0.0.0:30002"

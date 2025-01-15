@@ -1,0 +1,21 @@
+# Je les ai fait en yaml mais on peux faire les commandes suivantes chacun de notre côté avant de lancer les fichiers de déploiement :
+# kubectl create namespace *nomNamespace*
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: unitaire
+
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: acceptation
+
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: production

@@ -2,7 +2,11 @@ apiVersion : v1
 kind: Deployment
 metadata: 
   name: gcwebreactApp
-  namespace: unitaire
+  namespace: 
+  valueFrom:
+    configMapKeyRef:
+      name: config-map-unitaire-web
+      key: NAMESPACE
   labels: 
     app: GC.WebReact
     tier: web
@@ -22,5 +26,8 @@ spec:
         image: image-webapp-tp3
         env:
         - name: ASPNETCORE_URLS
-          value: "http://0.0.0.0:30000"
-     
+          value: 
+          valueFrom:
+            configMapKeyRef:
+              name: config-map-unitaire-web
+              key: ASPNETCORE_URLS

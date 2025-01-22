@@ -28,6 +28,12 @@ spec:
         - name: ASPNETCORE_URLS
           value: 
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: config-map-unitaire-web
               key: ASPNETCORE_URLS
+        - name: ConnectionStrings__DefaultConnection
+          value: 
+          valueFrom:
+            configMapKeyRef:
+              name: secretsUnitaireWebApp
+              key: CONNECTION_STRING

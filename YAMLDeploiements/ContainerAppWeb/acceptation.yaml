@@ -28,7 +28,13 @@ spec:
         - name: ASPNETCORE_URLS
           value: 
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: config-map-acceptation-web
               key: ASPNETCORE_URLS
+        - name: ConnectionStrings__DefaultConnection
+          value: 
+          valueFrom:
+            configMapKeyRef:
+              name: secretsAcceptationWebApp
+              key: CONNECTION_STRING
      

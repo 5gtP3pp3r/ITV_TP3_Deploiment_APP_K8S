@@ -20,6 +20,27 @@ spec:
       containers:
       - name: gcwebreactDB
         image: mysql:5.7 
+        environment: 
+        MYSQL_DATABASE:
+          valueFrom:
+            secretKeyRef: 
+              name: secretsUnitaire
+              key: MYSQL_DATABASE
+        MYSQL_ROOT_PASSWORD:
+          valueFrom:
+            secretKeyRef: 
+              name: secretsUnitaire
+              key: MYSQL_ROOT_PASSWORD
+        MYSQL_USER:
+          valueFrom:
+            secretKeyRef: 
+              name: secretsUnitaire
+              key: MYSQL_USER
+        MYSQL_PASSWORD:
+           valueFrom:
+            secretKeyRef: 
+              name: secretsUnitaire
+              key: MYSQL_PASSWORD
         resources:
           limits:
             memory: # à discuter

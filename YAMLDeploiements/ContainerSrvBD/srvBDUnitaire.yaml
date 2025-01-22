@@ -43,6 +43,6 @@ spec:
               key: MYSQL_PASSWORD
         resources:
           limits:
-            memory: # à discuter
-            cpu: # à discuter
+            memory: "2Gi"
+            cpu: "2"
           

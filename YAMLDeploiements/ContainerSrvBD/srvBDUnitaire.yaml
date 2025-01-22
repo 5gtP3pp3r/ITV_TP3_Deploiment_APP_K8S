@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Deployment
 metadata:
-  name: gcwebreactBDUnitaire
+  name: gcwebreactBD
   namespace: unitaire
   labels:
     app: GC.WebReact
@@ -18,15 +18,8 @@ spec:
         tier: database
     spec:
       containers:
-      - name: gcwebreactDBUnitaire
-        image: # à voir 
-        volumeMounts:
-        - name: #nom à venir
-        - mounthPath: # je crois que le chemin dépend de l'image..
-        volumes:
-        - name: #nom à venir
-          persistantVolumeClaim:
-           claimName: #nom à venir
+      - name: gcwebreactDB
+        image: mysql:5.7 
         resources:
           limits:
             memory: # à discuter

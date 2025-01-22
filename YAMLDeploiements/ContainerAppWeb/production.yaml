@@ -1,7 +1,7 @@
 apiVersion : v1
 kind: Deployment
 metadata: 
-  name: gcwebreactAppProduction
+  name: gcwebreactApp
   namespace: production
   labels: 
     app: GC.WebReact
@@ -18,14 +18,8 @@ spec:
        tier: web
     spec:
       containers:
-      - name: gcwebreactAppProduction
-        image: #nom de l'image à willino
-        volumeMounts:
-        - name: #nom à venir
-        - mounthPath: # je crois que le chemin dépend de l'image..
-        volumes:
-        - name: #nom à venir
-          persistantVolumeClaim:
-           claimName: #nom à venir
-        ports:
-        - containerPort: 30002
+      - name: gcwebreactApp
+        image: image-webapp-tp3
+        env:
+        - name: ASPNETCORE_URLS
+          value: "http://0.0.0.0:30002"

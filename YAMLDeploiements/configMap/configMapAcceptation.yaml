@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-acceptation-web
+  namespace: acceptation
+data:
+  NAMESPACE: "acceptation"
+  ASPNETCORE_URLS: "http://0.0.0.0:30001"

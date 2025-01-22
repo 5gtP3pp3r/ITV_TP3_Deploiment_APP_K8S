@@ -20,6 +20,8 @@ spec:
       containers:
       - name: gcwebreactDB
         image: mysql:5.7
+        environment: 
+        
         resources:
           limits:
             memory: # à discuter

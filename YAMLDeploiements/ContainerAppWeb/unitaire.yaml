@@ -19,18 +19,16 @@ spec:
     spec:
       containers:
       - name: gcwebreactapp
-        image: image-webapp-tp3
+        image: 2394947/image-webapp-tp3
         env:
         - name: ASPNETCORE_URLS
-          value: 
           valueFrom:
-            secretKeyRef:
+            configMapKeyRef:
               name: config-map-unitaire-web
               key: ASPNETCORE_URLS
         - name: ConnectionStrings__DefaultConnection
-          value: 
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: secrets-unitaire-webapp
               key: CONNECTION_STRING
 

@@ -23,7 +23,7 @@ spec:
         env:
           - name: SA_PASSWORD
             valueFrom:
-              secreftKeyRef:
+              secretKeyRef:
                 name: secretsunitaire
                 key: PASSWORD
           - name: ACCEPT_EULA

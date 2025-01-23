@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-acceptation-bd
+  namespace: acceptation
+data:
+ TAA: "Y" 

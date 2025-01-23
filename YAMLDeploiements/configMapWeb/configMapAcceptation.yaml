@@ -4,5 +4,4 @@ metadata:
   name: config-map-acceptation-web
   namespace: acceptation
 data:
-  NAMESPACE: "acceptation"
-  ASPNETCORE_URLS: "http://0.0.0.0:30001"
+  ASPNETCORE_URLS: "http://127.0.0.1:30001"

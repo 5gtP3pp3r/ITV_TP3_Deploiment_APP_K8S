@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-production-bd
+  namespace: production
+data:
+ TAA: "Y" 

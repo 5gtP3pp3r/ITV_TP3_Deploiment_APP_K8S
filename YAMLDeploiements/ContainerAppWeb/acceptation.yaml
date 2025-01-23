@@ -1,19 +1,15 @@
-apiVersion : v1
+apiVersion : apps/v1
 kind: Deployment
 metadata: 
-  name: gcwebreactApp
-  namespace: 
-  valueFrom:
-    configMapKeyRef:
-      name: config-map-acceptation-web
-      key: NAMESPACE
+  name: gcwebreactapp
+  namespace: acceptation
   labels: 
     app: GC.WebReact
     tier: web
 spec:
   selector:
     matchLabels:
-      app: GC.WebReact
+        app: GC.WebReact
       tier: web
   template:
     metadata:
@@ -22,7 +18,7 @@ spec:
        tier: web
     spec:
       containers:
-      - name: gcwebreactApp
+      - name: gcwebreactapp
         image: image-webapp-tp3
         env:
         - name: ASPNETCORE_URLS
@@ -35,6 +31,25 @@ spec:
           value: 
           valueFrom:
             configMapKeyRef:
-              name: secretsAcceptationWebApp
+              name: secrets-acceptation-webapp
               key: CONNECTION_STRING
      
+---
+
+apiVersion: v1
+kind: Service
+metadata: 
+  namespace: acceptation
+  name: webapp-service
+  labels:
+    app: GC.WebReact
+    tier: web
+spec:
+  selector:
+    app: GC.WebReact
+    tier: web
+  ports:
+  - protocol: TCP
+    port: 80
+    nodePort: 30001 
+  type: NodePort

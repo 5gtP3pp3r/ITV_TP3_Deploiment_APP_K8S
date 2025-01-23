@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-unitaire-bd
+  namespace: unitaire
+data:
+ TAA: "Y" 

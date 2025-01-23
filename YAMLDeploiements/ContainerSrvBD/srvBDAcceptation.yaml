@@ -1,7 +1,7 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gcwebreactBD
+  name: gcwebreactbd
   namespace: acceptation
   labels:
     app: GC.WebReact
@@ -18,31 +18,41 @@ spec:
         tier: database
     spec:
       containers:
-      - name: gcwebreactDB
-        image: mysql:5.7
-        environment: 
-        MYSQL_DATABASE:
-          valueFrom:
-            secretKeyRef: 
-              name: secretsAcceptation
-              key: MYSQL_DATABASE
-        MYSQL_ROOT_PASSWORD:
-          valueFrom:
-            secretKeyRef: 
-              name: secretsAcceptation
-              key: MYSQL_ROOT_PASSWORD
-        MYSQL_USER:
-          valueFrom:
-            secretKeyRef: 
-              name: secretsAcceptation
-              key: MYSQL_USER
-        MYSQL_PASSWORD:
-           valueFrom:
-            secretKeyRef: 
-              name: secretsAcceptation
-              key: MYSQL_PASSWORD
+      - name: gcwebreactbd
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        env:
+          - name: SA_PASSWORD
+            valueFrom:
+              secreftKeyRef:
+                name: secretsacceptation
+                key: PASSWORD
+          - name: ACCEPT_EULA
+            valueFrom:
+              configMapKeyRef:
+                name: config-map-acceptation-bd
+                key: TAA
+        ports:
+          - containerPort: 1433
         resources:
           limits:
             memory: "2Gi"
             cpu: "2"
-          
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: acceptation
+  name: gcwebreactbd-service
+  labels:
+    app: GC.WebReact
+    tier: database
+spec:
+  selector:
+    app: GC.WebReact
+    tier: database
+  ports:
+    - protocol: TCP
+      port: 1433
+  clusterIP: None  

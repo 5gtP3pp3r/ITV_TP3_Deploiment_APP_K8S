@@ -15,7 +15,7 @@ William : 0.5 heures , Jennifer : 0.5 heures
 
 ## Question à 15 points
 #### En quoi l'utilisation de Docker et de Kubernetes peut aider les équipes de développements ?
-Réponse : 
+Réponses : 
 
 - Les conteneurs Docker permettent de packager une application avec toutes ses dépendances (app, BD etc...) dans un environement contrôlé qui sera le même autant en local qu'en procuction.
 - On ne peut plus donner comme raison "Mais Ça marche sur ma machine!" tout est reproductibles dans des environements prédéterminé et précis.

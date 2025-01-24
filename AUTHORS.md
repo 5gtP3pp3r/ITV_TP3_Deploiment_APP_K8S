@@ -8,8 +8,7 @@
 ## Information projet
 
 - Lien Docker Hub :
-- https://hub.docker.com/repository/docker/5gtp3pp3r/image-webapp-tp3/tags
-
+- https://hub.docker.com/repository/docker/5gtp3pp3r/tp3-itv-image/general
 ## Lien de la vidéo de présentation
 
 - Lien YouTube:

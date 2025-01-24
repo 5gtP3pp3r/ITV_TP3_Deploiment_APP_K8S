@@ -13,9 +13,9 @@ spec:
       tier: web
   template:
     metadata:
-     labels:
-       app: GC.WebReact
-       tier: web
+      labels:
+        app: GC.WebReact
+        tier: web
     spec:
       containers:
       - name: gcwebreactapp

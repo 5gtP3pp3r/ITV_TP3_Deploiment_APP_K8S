@@ -10,7 +10,7 @@ William : 2 heures , Jennifer : 2 heures
   William : 0.5 heures , Jennifer : 0.5 heures 
 - Rédaction de la documentation
 William : 0.5 heures , Jennifer : 0.5 heures
-#### Total des heures pour la réalisation du projet : 14 heures et demi
+#### Total des heures pour la réalisation du projet : 14 heures et demie
 * À noter que notre travail d'équipe incroyable et impeccable n'a pas facilité la répartition des heures car nous avons beaucoup travaillé ensemble sur les tâches ;-).
 
 ## Question à 15 points
